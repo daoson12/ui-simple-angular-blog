@@ -1,8 +1,8 @@
 // blog-post.model.ts
 export interface BlogPost {
-    id: number;
-    title: string;
-    content: string;
-    createdAt: Date;
-  }
-  
+  id: string;
+  title: string;
+  content: string;
+  created: string; // Assuming created is a string in ISO format
+  updated: string; // Assuming updated is a string in ISO format
+}

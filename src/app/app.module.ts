@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -12,6 +12,9 @@ import { HeroComponent } from './layout/hero/hero.component';
 import { HomeComponent } from './layout/home/home.component';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
+import { BlogPostEffects } from './store/effects/blog-post.effects';
+import { blogPostReducer } from './store/states/blog-post.state';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -27,8 +30,14 @@ import { EffectsModule } from '@ngrx/effects';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    StoreModule.forRoot({}, {}),
-    EffectsModule.forRoot([])
+    HttpClientModule,
+    // StoreModule.forRoot({}, {}),
+    // EffectsModule.forRoot([]),
+    StoreModule.forFeature('blogPosts', blogPostReducer),
+    EffectsModule.forFeature([BlogPostEffects]),
+    
+
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
