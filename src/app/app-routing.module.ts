@@ -13,13 +13,13 @@ const routes: Routes = [
       {
         path:'', component:BlogPostListComponent
       },
-
+  {
+    path:'post-blog', component:BlogPostCreateComponent,
+  }
 
     ]
   },
-    {
-    path:'post-blog', component:BlogPostCreateComponent,
-  }
+  
 ];
 
 @NgModule({
